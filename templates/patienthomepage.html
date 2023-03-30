@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slideshow Images</title>
+    <style>
+      * {
+        box-sizing: border-box
+      }
+      body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+      }
+      header {
+        background-color: #ff0037;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 10px;
+      }
+      .mySlides {
+        display: none
+      }
+      img {
+        vertical-align: middle;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Caption text */
+      .text {
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #999999;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #111111;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+          font-size: 11px
+        }
+      }
+      .topnav {
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+	justify-content:space-between;
+	align-items: center;
+	padding: 10px 20px; 
+
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+.dropdown img{
+width: 21px;
+float: left;
+}
+.right {
+	display: flex;
+	align-items: center;
+  justify-content:right
+}
+
+.right img {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	margin-left: 20px;
+	cursor: pointer;
+  justify-content:right
+}
+
+.right .dropdown-content {
+	right: 0;
+}
+.left {
+	display: flex;
+	align-items: center;
+}
+
+.container{
+  max-width:1000px;
+  margin:100px auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+
+.card{
+  position:relative;
+  margin:20px 0;
+  width:300px;
+  height:400px;
+  background: #fff;
+  transform-style:preserve-3d;
+  transform:perspective(2000px);
+  transition:1s;
+  box-shadow:inset 100px 0 50px rgba(0,0,0,0.5);
+}
+
+.card:hover{
+  z-index:1111;
+  transform:perspective(2000px) rotate(-10deg);
+  box-shadow:inset 20px 0 50px rgba(0,0,0,0.5);
+}
+
+.card .img-container{
+  position:relative;
+  width:100%;
+  height:100%;
+  border:1px solid #000;
+  box-sizing:border-box;
+  transform-origin:left;
+  z-index:1;
+  transition:1s;
+}
+
+.card .img-container img{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  object-fit:cover;
+}
+
+.card:hover .img-container{
+  transform:rotateY(-135deg);
+}
+
+.card .card-details{
+  position:absolute;
+  left:0;
+  top:0;
+  box-sizing:border-box;
+  padding:20px;
+  color:#000;
+}
+
+ .card .card-details h2{
+  margin:0;
+  padding:0.5em 0;
+  text-transform:uppercase;
+  font-size:2em;
+  color:#ed363a;
+}
+
+.card .card-details p{
+  margin:0;
+  padding:0;
+  line-height:25px;
+  font-size:1.1em;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Patient Home Page</h1>
+    </header>
+    <div class="topnav" id="myTopnav">
+        <a href="/home" class="active">Home</a>
+        <a href="/About">About</a>
+        <a href="/contactus">Contact</a>
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+           
+            <a href="/user_booking_form">Book Appointment</a>
+            <a href="/user_cancellation_form">Cancel Appointment</a>
+            <a href="/pickadate">Available Appointments</a>
+            <a href="/mybookings">Booked Appointments</a>
+            <a href="/mycancellations">Cancelled Appointments</a>
+            <a href="/myadminreplys">View Messages</a>
+          </div>
+        </div> 
+        <div class="dropdown">
+          <button class="dropbtn">Feedbacks 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="/feedback_form">Give feedback</a>
+            <a href="/myfeedbacksshow">Previous Feedbacks</a>
+          </div>
+        </div>
+        <div class="right">
+          <div class="dropdown">
+            <img src="static/images/adminforuser.jpg" alt="Profile Picture">
+            <div class="dropdown-content">
+              <a  href="#" class="profile-link" onclick="showProfile()">Profile</a>
+              <a href="#">Edit Profile</a>
+              <a href="/adminlogout">Log Out</a>
+            </div>
+          </div>
+        </div>
+      
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+      </div>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 6</div>
+          <img src="static/images/hope16.jpg" style="width:100%">
+          <div class="text">London, Ebgland</div>
+        </div>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 6</div>
+        <img src="static/images/hope1.jpg" style="width:100%">
+        <div class="text">London, Ebgland</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 6</div>
+        <img src="static/images/hope2.jpg" style="width:100%">
+        <div class="text">Sunset in Romania</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 6</div>
+        <img src="static/images/hope9.jpg" style="width:100%">
+        <div class="text">New York, USA</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 6</div>
+        <img src="static/images/hope15.jpg" style="width:100%">
+        <div class="text">New York, USA</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">6 / 6</div>
+        <img src="static/images/hope6.jpg" style="width:100%">
+        <div class="text">New York, USA</div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+    <script>
+      let slideIndex = 0;
+      let timeoutId = null;
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      
+      showSlides();
+      function currentSlide(index) {
+           slideIndex = index;
+           showSlides();
+      }
+     function plusSlides(step) {
+        
+        if(step < 0) {
+            slideIndex -= 2;
+            
+            if(slideIndex < 0) {
+              slideIndex = slides.length - 1;
+            }
+        }
+        
+        showSlides();
+     }
+      function showSlides() {
+        for(let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          dots[i].classList.remove('active');
+        }
+        slideIndex++;
+        if(slideIndex > slides.length) {
+          slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add('active');
+         if(timeoutId) {
+            clearTimeout(timeoutId);
+         }
+        timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
+      }
+
+      function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+function showProfile() {
+  var popup = document.querySelector(".profile-popup");
+  popup.style.display = "block";
+}
+
+function closeProfile() {
+  var popup = document.querySelector(".profile-popup");
+  popup.style.display = "none";
+}
+
+window.onclick = function(event) {
+  var popup = document.querySelector(".profile-popup");
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+   <div class="container">
+    <div class="card">
+      <div class="img-container">
+        <img src="static/images/about-us-icon-15.png" alt=""/>
+      </div>
+      <div class="card-details">
+        <h2>About</h2>
+        <p>an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process. The modern hospital also often serves as a centre for investigation and for teaching.</p>
+      </div>
+    </div>
+     <div class="card">
+      <div class="img-container">
+        <img src="static/images/specialities.jpg" alt=""/>
+      </div>
+      <div class="card-details">
+        <h2>Speciality </h2>
+        <p>Constant supervison, continuous care is the guiding principle of the department. With a keen eye on patient safety, our team is able to undertake complex surgical procedures with support from the anethesiology department.</p>
+      </div>
+    </div>
+     <div class="card">
+      <div class="img-container">
+        <img src="static/images/contactus.jpg" alt=""/>
+      </div>
+      <div class="card-details">
+        <h2>Contacxt Us</h2>
+        <p>Name : Vamsi Krishna</p>
+        <p>Email:vamsikrishna@gmail.com</p>
+        <p>For more details contact me at Phone </p>
+        <p>Phone : +91 7095340708</p>
+      </div>
+    </div>
+     <div class="card">
+      <div class="img-container">
+        <img src="static/images/vision1.jpg" alt=""/>
+      </div>
+      <div class="card-details">
+        <h2>Our Vision</h2>
+        <p>“Our vision is to be the region’s foremost healthcare provider with access to diverse clinical services focusing on consistency in ethical delivery of quality care, research, and use of the best technology.”</p>
+      </div>
+    </div>
+     <div class="card">
+      <div class="img-container">
+        <img src="static/images/mission.jpg" alt=""/>
+      </div>
+      <div class="card-details">
+        <h2>Our Mission</h2>
+        <p>“Our mission is to provide healthcare of international standards through a team of highly qualified professionals and affordable to the community. We are also committed to maintaining clinical excellence by focussing on healthcare academics, research, and the latest technology.”</p>
+      </div>
+    </div>
+     <div class="card">
+      <div class="img-container">
+        <img src="static/images/services.jpg" alt=""/>
+      </div>
+      <div class="card-details">
+        <h2>our services</h2>
+        <p>Morethan 10 affiliated doctors  award winning clinical  in Johns Hopkins Medicine, one of the country’s premier academic medical systems.  All of this is delivered in some of the newest health care facilities in the region designed for the comfort and convenience of our patients </p>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
+

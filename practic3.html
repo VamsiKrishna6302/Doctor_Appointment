@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+body{
+  margin:0;
+  padding:0;
+  background:#f2f2f2;
+  font-family: 'Acme';
+}
+
+.container{
+  max-width:1000px;
+  margin:100px auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+
+.card{
+  position:relative;
+  margin:20px 0;
+  width:300px;
+  height:400px;
+  background: #fff;
+  transform-style:preserve-3d;
+  transform:perspective(2000px);
+  transition:1s;
+  box-shadow:inset 100px 0 50px rgba(0,0,0,0.5);
+}
+
+.card:hover{
+  z-index:1111;
+  transform:perspective(2000px) rotate(-10deg);
+  box-shadow:inset 20px 0 50px rgba(0,0,0,0.5);
+}
+
+.card .img-container{
+  position:relative;
+  width:100%;
+  height:100%;
+  border:1px solid #000;
+  box-sizing:border-box;
+  transform-origin:left;
+  z-index:1;
+  transition:1s;
+}
+
+.card .img-container img{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  object-fit:cover;
+}
+
+.card:hover .img-container{
+  transform:rotateY(-135deg);
+}
+
+.card .card-details{
+  position:absolute;
+  left:0;
+  top:0;
+  box-sizing:border-box;
+  padding:20px;
+  color:#000;
+}
+
+ .card .card-details h2{
+  margin:0;
+  padding:0.5em 0;
+  text-transform:uppercase;
+  font-size:2em;
+  color:#ed363a;
+}
+
+.card .card-details p{
+  margin:0;
+  padding:0;
+  line-height:25px;
+  font-size:1.1em;
+}
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+  <div class="card">
+    <div class="img-container">
+      <img src="about-us-icon-15.png" alt=""/>
+    </div>
+    <div class="card-details">
+      <h2>About</h2>
+      <p>an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process. The modern hospital also often serves as a centre for investigation and for teaching.</p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="img-container">
+      <img src="specialities.jpg" alt=""/>
+    </div>
+    <div class="card-details">
+      <h2>Speciality </h2>
+      <p>Constant supervison, continuous care is the guiding principle of the department. With a keen eye on patient safety, our team is able to undertake complex surgical procedures with support from the anethesiology department.</p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="img-container">
+      <img src="contactus.jpg" alt=""/>
+    </div>
+    <div class="card-details">
+      <h2>Contacxt Us</h2>
+      <p>Name : Vamsi Krishna</p>
+      <p>Email:pallalavamsikrishna@gmail.com</p>
+      <p>For more details contact me at Phone </p>
+      <p>Phone : +91 7095340708</p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="img-container">
+      <img src="vision1.jpg" alt=""/>
+    </div>
+    <div class="card-details">
+      <h2>Our Vision</h2>
+      <p>“Our vision is to be the region’s foremost healthcare provider with access to diverse clinical services focusing on consistency in ethical delivery of quality care, research, and use of the best technology.”</p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="img-container">
+      <img src="mission.jpg" alt=""/>
+    </div>
+    <div class="card-details">
+      <h2>Our Mission</h2>
+      <p>“Our mission is to provide healthcare of international standards through a team of highly qualified professionals and affordable to the community. We are also committed to maintaining clinical excellence by focussing on healthcare academics, research, and the latest technology.”</p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="img-container">
+      <img src="services.jpg" alt=""/>
+    </div>
+    <div class="card-details">
+      <h2>our services</h2>
+      <p>Hospital combines wellness services, more than 1000 affiliated doctors in nearly 100 clinical specialties, award winning clinical excellence and membership in Johns Hopkins Medicine, one of the country’s premier academic medical systems.  All of this is delivered in some of the newest health care facilities in the region designed for the comfort and convenience of our patients and their families.</p>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

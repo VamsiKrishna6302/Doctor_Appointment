@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        input[type="date"]:disabled {
+  background-color: #f2f2f2;
+  color: #a9a9a9;
+}
+input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+
+</style>
+<form action="/available_appointments" method="post">
+<label for="dateofbirth"><h1>Appointment Date :</h1></label>
+<input type="date" id="date-picker" name="date" min="2023-03-15">
+<button class="btn btn-primary" type="submit">Button</button>
+</form>
+</head>
+<body>
+<h1 style="color: blue;">Messages</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr> 
+                        <th><h1 style="text-align: center;">Available Appointments</h1></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td><h3>{{ row }}</h3></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+</body>
+
+
+
+</html>

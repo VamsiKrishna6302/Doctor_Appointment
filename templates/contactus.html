@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us - XYZ Hospital</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-blue bg-dark">
+			<a class="navbar-brand" href="#">XYZ Hospital</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+
+				</ul>
+				<form class="form-inline mt-2 mt-md-0">
+					<input class="form-control mr-sm-2" type="text" placeholder="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<main role="main">
+		<div class="container mt-5">
+			<h1>Contact Us</h1>
+			<p>Please fill out the form below to contact us.</p>
+			<form action="/contactus" method="post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" class="form-control" id="name"  name="name" placeholder="Enter your name">
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+				</div>
+				<div class="form-group">
+					<label for="message">Message:</label>
+					<textarea class="form-control" id="message" rows="5" name="msg" placeholder="Enter your message"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

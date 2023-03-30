@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doctor Receipt</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      .container {
+        margin: auto;
+        width: 70%;
+        border-radius: 5px;
+        background-color: #d7d5df;
+        padding: 150px;
+      }
+      .left-column {
+        float: left;
+        width: 50%;
+        margin-bottom: 20px;
+      }
+      .right-column {
+        float: right;
+        width: 50%;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      p {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      .clearfix {
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Doctor Receipt</h1>
+      <div class="left-column">
+        <label for="patient-name">Patient Name:</label>
+        <p>John Doe</p>
+
+        <label for="doctor-name">Doctor Name:</label>
+        <p>Dr. Jane Smith</p>
+
+        <label for="appointment-date">Appointment Date:</label>
+        <p>March 14, 2023</p>
+
+        <label for="appointment-time">Appointment Time:</label>
+        <p>10:00 AM</p>
+      </div>
+      <div class="right-column">
+        <label for="doctor-fees">Doctor Fees:</label>
+        <p>$100.00</p>
+
+        <label for="hospital-fees">Hospital Fees:</label>
+        <p>$50.00</p>
+
+        <label for="total-fees">Total Fees:</label>
+        <p>$150.00</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </body>
+</html>
