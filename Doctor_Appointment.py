@@ -15,7 +15,7 @@ app = Flask(__name__, static_url_path='/static')
  
 app.secret_key = 'vamsi'
 
-otp=random.randint(1000,9999)
+otp=random.randint(100000,999999)
 
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -26,7 +26,7 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
  
  
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.43.107'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '6302369469'
 app.config['MYSQL_DB'] = 'DOCTOR'
